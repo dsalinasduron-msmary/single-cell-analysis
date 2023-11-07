@@ -1,14 +1,27 @@
 \documentclass{article}
 \usepackage{cite}
 \usepackage{url}
+\usepackage{hyperref}
 
 \begin{document}
 \section{Methods}
 
+\subsection{Obtaining sequencing data}
+
 We obtained single-cell sequencing data. \cite{olalekan2021characterizing} The
-pre-processed gene counts are accessible through GEO (accession no. GSE147082).
-To obtain the spliced-unspliced ratios required for cell velocity calculation,
-we retrieved the full sequences from SRA (accession no. PRJNA612966)
+pre-processed gene counts are accessible through
+\href{https://www.ncbi.nlm.nih.gov/geo}{GEO} using accession no. GSE147082. To
+obtain the spliced-unspliced ratios required for cell velocity calculation, we
+retrieved the full sequences from
+\href{https://www.ncbi.nlm.nih.gov/Traces/study}{SRA} using accession no.
+PRJNA612966.
+
+\subsection{RNA velocity calculation}
+
+The data was retrieved as FASTA files. We then used \texttt{kallisto|bustools}
+to compute the RNA velocity using the method developed by LaManno et al.
+\cite{kallisto,la2018rna}. This resulted in an annotated data file (h5ad) for
+each patient.
 
 \bibliographystyle{plain}
 \bibliography{a.bib}
